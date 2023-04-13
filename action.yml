@@ -1,0 +1,24 @@
+name: "Deploy to Surge"
+description: "Deploy a static website to Surge"
+inputs:
+  root-dir:
+    description: "Path to site root directory"
+    required: true
+  surge-domain:
+    description: "Surge domain to deploy to"
+    required: true
+  surge-token:
+    description: "Surge access token"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout Latest Commit
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Publish VSCode Extension
+      run: npx surge ${{ input.root-dir }} ${{ inputs.surge-domain }} --token ${{ inputs.surge-token }
+      shell: bash
