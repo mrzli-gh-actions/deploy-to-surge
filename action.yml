@@ -20,5 +20,5 @@ runs:
       with:
         node-version: 18
     - name: Publish VSCode Extension
-      run: npx surge ${{ input.root-dir }} ${{ inputs.surge-domain }} --token ${{ inputs.surge-token }
+      run: npx surge ${{ inputs.root-dir }} ${{ inputs.surge-domain }} --token ${{ inputs.surge-token }}
       shell: bash
