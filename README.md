@@ -10,7 +10,7 @@ on:
     branches: [master]
 
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Surge
